@@ -1,0 +1,88 @@
+{
+	"info": {
+		"_postman_id": "f3f82449-8280-4932-bdad-2c1d3efefe6c",
+		"name": "NTT Data",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Consultar Clientes All",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9898/clientes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9898",
+					"path": [
+						"clientes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Consultar Cliente Id",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Agregar Persona Copy",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"clientId\": 3,\r\n    \"password\": 1234,\r\n    \"status\": \"T\",\r\n    \"identification\": \"1764325491\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9898/clientes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9898",
+					"path": [
+						"clientes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Cliente",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"identification\": \"1764325491\",\r\n    \"name\": \"Marianela Montalvo\",\r\n    \"gender\": \"F\",\r\n    \"age\": 34,\r\n    \"address\": \"Amazonas y NNUU\",\r\n    \"phone\": \"097548965\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:9898/person/0804362903",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9898",
+					"path": [
+						"person",
+						"0804362903"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
