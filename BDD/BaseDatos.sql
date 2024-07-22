@@ -23,7 +23,7 @@ CONSTRAINT fk_cliente_persona FOREIGN KEY (identificacion) REFERENCES PERSONA(id
 CREATE TABLE CUENTA(
 numero_cuenta character varying(13) NOT NULL,
 tipo_cuenta character varying(1) NOT NULL,
-saldo_inicial money NOT NULL, 
+saldo_inicial decimal NOT NULL, 
 estado character varying(1) NOT NULL,
 clienteid int NOT NULL,
 CONSTRAINT pk_cuenta PRIMARY KEY (numero_cuenta),
@@ -34,8 +34,9 @@ CREATE TABLE MOVIMIENTO(
 codigo int GENERATED ALWAYS AS IDENTITY,
 fecha date NOT NULL,
 tipo_movimiento character varying(1) NOT NULL,
-valor money NOT NULL, 
-saldo money NOT NULL,
+valor decimal NOT NULL, 
+saldo decimal NOT NULL,
+estado character varying(1) NOT NULL,
 numero_cuenta character varying(13) NOT NULL,
 CONSTRAINT pk_movimiento PRIMARY KEY (codigo),
 CONSTRAINT fk_movimiento_cuenta FOREIGN KEY (numero_cuenta) REFERENCES CUENTA(numero_cuenta) ON DELETE RESTRICT ON UPDATE CASCADE

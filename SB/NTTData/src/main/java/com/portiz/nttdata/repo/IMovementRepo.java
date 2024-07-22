@@ -6,4 +6,6 @@ import com.portiz.nttdata.model.Movement;
 
 public interface IMovementRepo extends JpaRepository<Movement, Integer> {
 
+	Movement findByAccountAndStatus(String account, String status);
+
 }

@@ -1,4 +1,4 @@
-package com.portiz.nttdata.rest;
+package com.portiz.nttdata.controller;
 
 import java.util.List;
 import java.util.Optional;
@@ -15,7 +15,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.portiz.nttdata.exception.BusinessException;
+import com.portiz.nttdata.model.Account;
 import com.portiz.nttdata.model.Movement;
+import com.portiz.nttdata.repo.IAccountRepo;
 import com.portiz.nttdata.repo.IMovementRepo;
 
 @RestController
@@ -24,6 +27,8 @@ public class MovementController {
 
 	@Autowired
 	private IMovementRepo movementRepo;
+	@Autowired
+	private IAccountRepo accountRepo;
 
 	@GetMapping
 	public ResponseEntity<List<Movement>> getMovement() {
@@ -54,17 +59,31 @@ public class MovementController {
 	}
 
 	@PostMapping
-	public void insertMovement(@RequestBody Movement mov) {
-		movementRepo.save(mov);
-	}
+	public ResponseEntity<Movement> insertMovement(@RequestBody Movement mov) {
+		Movement exist = movementRepo.findByAccountAndStatus(mov.getAccount(), "T");
+		double oldBalance = 0, newBalance = 0;
+		if (exist == null) {
+			Optional<Account> acc = accountRepo.findById(mov.getAccount());
+			if (acc.isEmpty()) {
+				throw new BusinessException("E-200", HttpStatus.BAD_REQUEST, "La cuenta no existe");
+			} else {
+				oldBalance = acc.get().getInitialBalance();
+			}
+		} else {
+			oldBalance = exist.getBalance();
+			exist.setStatus("F");
+			movementRepo.save(exist);
+		}
+		newBalance = oldBalance + mov.getValue();
+		mov.setType("D");
+		if (newBalance < 0) {
+			throw new BusinessException("E-303", HttpStatus.BAD_REQUEST, "Saldo no disponible");
+		} else if (newBalance < oldBalance) {
+			mov.setType("R");
+		}
 
-	@PutMapping
-	public void updateMovement(@RequestBody Movement mov) {
+		mov.setBalance(newBalance);
 		movementRepo.save(mov);
-	}
-
-	@DeleteMapping(value = "/{id}")
-	public void deleteMovement(@PathVariable("id") Integer id) {
-		movementRepo.deleteById(id);
+		return new ResponseEntity<Movement>(mov, HttpStatus.OK);
 	}
 }

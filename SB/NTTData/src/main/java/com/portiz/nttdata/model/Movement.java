@@ -1,6 +1,5 @@
 package com.portiz.nttdata.model;
 
-import java.math.BigDecimal;
 import java.util.Date;
 
 import jakarta.persistence.Column;
@@ -8,7 +7,9 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import lombok.Data;
 
+@Data
 @Entity(name = "movimiento")
 public class Movement {
 
@@ -24,49 +25,14 @@ public class Movement {
 	private String type;
 
 	@Column(name = "valor")
-	private BigDecimal value;
+	private double value;
 
 	@Column(name = "saldo", length = 200)
-	private BigDecimal balance;
+	private double balance;
+	
+	@Column(name = "estado", length = 1)
+	private String status;
 
-	public int getCode() {
-		return code;
-	}
-
-	public void setCode(int code) {
-		this.code = code;
-	}
-
-	public Date getDate() {
-		return date;
-	}
-
-	public void setDate(Date date) {
-		this.date = date;
-	}
-
-	public String getType() {
-		return type;
-	}
-
-	public void setType(String type) {
-		this.type = type;
-	}
-
-	public BigDecimal getValue() {
-		return value;
-	}
-
-	public void setValue(BigDecimal value) {
-		this.value = value;
-	}
-
-	public BigDecimal getBalance() {
-		return balance;
-	}
-
-	public void setBalance(BigDecimal balance) {
-		this.balance = balance;
-	}
-
+	@Column(name = "numero_cuenta")
+	private String account;
 }

@@ -11,6 +11,8 @@ services:
       - DATABASE_URL=jdbc:postgresql://java_db:5432/db_nttdata
       - DATABASE_USERNAME=postgres
       - DATABASE_PASSWORD=admin
+    depends_on:
+      - pgadmin
   java_db:
     container_name: java_db
     image: postgres:15
@@ -20,3 +22,12 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: admin
       POSTGRES_DB: db_nttdata
+  pgadmin:
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: "paulortizvera@gmail.com"
+      PGADMIN_DEFAULT_PASSWORD: "admin"
+    ports:
+      - "80:80"
+    depends_on:
+      - java_db

@@ -1,88 +1,355 @@
 {
 	"info": {
-		"_postman_id": "f3f82449-8280-4932-bdad-2c1d3efefe6c",
+		"_postman_id": "5b0a57d0-eb06-435c-aa4a-4d1c4f68cc6b",
 		"name": "NTT Data",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30472445"
 	},
 	"item": [
 		{
-			"name": "Consultar Clientes All",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:9898/clientes",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "9898",
-					"path": [
-						"clientes"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Consultar Cliente Id",
-			"request": {
-				"method": "GET",
-				"header": []
-			},
-			"response": []
-		},
-		{
-			"name": "Agregar Persona Copy",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"clientId\": 3,\r\n    \"password\": 1234,\r\n    \"status\": \"T\",\r\n    \"identification\": \"1764325491\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
+			"name": "Clientes",
+			"item": [
+				{
+					"name": "Consultar All",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9898/clientes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9898",
+							"path": [
+								"clientes"
+							]
 						}
-					}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "http://localhost:9898/clientes",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "9898",
-					"path": [
-						"clientes"
-					]
+				{
+					"name": "Consultar Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9898/clientes/0804362903",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9898",
+							"path": [
+								"clientes",
+								"0804362903"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Agregar",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"clientId\": 3,\r\n    \"password\": 1234,\r\n    \"status\": \"T\",\r\n    \"identification\": \"1764325491\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9898/clientes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9898",
+							"path": [
+								"clientes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"clientId\": 3,\r\n    \"password\": 1234,\r\n    \"status\": \"T\",\r\n    \"identification\": \"1764325491\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9898/clientes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9898",
+							"path": [
+								"clientes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"identification\": \"1764325491\",\r\n    \"name\": \"Marianela Montalvo\",\r\n    \"gender\": \"F\",\r\n    \"age\": 34,\r\n    \"address\": \"Amazonas y NNUU\",\r\n    \"phone\": \"097548965\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:9898/clientes/0804362901",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9898",
+							"path": [
+								"clientes",
+								"0804362901"
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
 		},
 		{
-			"name": "Delete Cliente",
-			"request": {
-				"method": "DELETE",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"identification\": \"1764325491\",\r\n    \"name\": \"Marianela Montalvo\",\r\n    \"gender\": \"F\",\r\n    \"age\": 34,\r\n    \"address\": \"Amazonas y NNUU\",\r\n    \"phone\": \"097548965\"\r\n}"
+			"name": "Cuentas",
+			"item": [
+				{
+					"name": "Consultar All",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9898/clientes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9898",
+							"path": [
+								"clientes"
+							]
+						}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "http://localhost:9898/person/0804362903",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "9898",
-					"path": [
-						"person",
-						"0804362903"
-					]
+				{
+					"name": "Consultar Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9898/clientes/0804362903",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9898",
+							"path": [
+								"clientes",
+								"0804362903"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Agregar",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"number\": \"225487\",\r\n    \"type\": \"C\",\r\n    \"initialBalance\": 100,\r\n    \"status\": \"T\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9898/cuentas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9898",
+							"path": [
+								"cuentas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"clientId\": 3,\r\n    \"password\": 1234,\r\n    \"status\": \"T\",\r\n    \"identification\": \"1764325491\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9898/clientes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9898",
+							"path": [
+								"clientes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"identification\": \"1764325491\",\r\n    \"name\": \"Marianela Montalvo\",\r\n    \"gender\": \"F\",\r\n    \"age\": 34,\r\n    \"address\": \"Amazonas y NNUU\",\r\n    \"phone\": \"097548965\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:9898/person/0804362903",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9898",
+							"path": [
+								"person",
+								"0804362903"
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
+		},
+		{
+			"name": "Movimientos",
+			"item": [
+				{
+					"name": "Consultar All",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9898/movimientos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9898",
+							"path": [
+								"movimientos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Consultar Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9898/clientes/0804362903",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9898",
+							"path": [
+								"clientes",
+								"0804362903"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Agregar",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"clientId\": 3,\r\n    \"password\": 1234,\r\n    \"status\": \"T\",\r\n    \"identification\": \"1764325491\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9898/clientes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9898",
+							"path": [
+								"clientes"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Reporte",
+			"item": [
+				{
+					"name": "Estado de Cuenta",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9898/clientes/0804362903",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9898",
+							"path": [
+								"clientes",
+								"0804362903"
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		}
 	]
 }
