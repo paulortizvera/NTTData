@@ -29,7 +29,7 @@ public class ClientController {
 	private IClientRepo clientRepo;
 
 	@GetMapping
-	public ResponseEntity<List<Client>> getClient() {
+	public ResponseEntity<List<Client>> getClients() {
 		try {
 			List<Client> cli = clientRepo.findAll();
 			if (cli == null) {
