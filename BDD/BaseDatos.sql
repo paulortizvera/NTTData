@@ -41,3 +41,56 @@ numero_cuenta character varying(13) NOT NULL,
 CONSTRAINT pk_movimiento PRIMARY KEY (codigo),
 CONSTRAINT fk_movimiento_cuenta FOREIGN KEY (numero_cuenta) REFERENCES CUENTA(numero_cuenta) ON DELETE RESTRICT ON UPDATE CASCADE
 );
+
+/* POBLADO DE TABLAS */
+INSERT INTO public.persona(
+	identificacion, nombre, genero, edad, direccion, telefono)
+	VALUES ('1764325491', 'Jose Lema', 'M', 25, 'Otavalo sn y principal', '098254785');
+INSERT INTO public.persona(
+	identificacion, nombre, genero, edad, direccion, telefono)
+	VALUES ('0804362903', 'Marianela Montalvo', 'F', 34, 'Amazonas y NNUU', '097548965');
+INSERT INTO public.persona(
+	identificacion, nombre, genero, edad, direccion, telefono)
+	VALUES ('1064792534', 'Juan Osorio', 'M', 34, '13 junio y Equinoccial', '098874587');
+
+INSERT INTO public.cliente(
+	clienteid, contrasena, estado, identificacion)
+	VALUES (1, '1234', 'T', '1764325491');
+INSERT INTO public.cliente(
+	clienteid, contrasena, estado, identificacion)
+	VALUES (2, '1234', 'T', '0804362903');
+INSERT INTO public.cliente(
+	clienteid, contrasena, estado, identificacion)
+	VALUES (3, '1245', 'T', '1064792534');
+
+
+INSERT INTO public.cuenta(
+	numero_cuenta, tipo_cuenta, saldo_inicial, estado, clienteid)
+	VALUES ('478758', 'A', 2000, 'T', 1);
+INSERT INTO public.cuenta(
+	numero_cuenta, tipo_cuenta, saldo_inicial, estado, clienteid)
+	VALUES ('225487', 'C', 100, 'T', 2);
+INSERT INTO public.cuenta(
+	numero_cuenta, tipo_cuenta, saldo_inicial, estado, clienteid)
+	VALUES ('495878', 'A', 0, 'T', 3);
+INSERT INTO public.cuenta(
+	numero_cuenta, tipo_cuenta, saldo_inicial, estado, clienteid)
+	VALUES ('496825', 'A', 540, 'T', 2);
+INSERT INTO public.cuenta(
+	numero_cuenta, tipo_cuenta, saldo_inicial, estado, clienteid)
+	VALUES ('585545', 'C', 1000, 'T', 1);
+
+
+INSERT INTO public.movimiento(
+	fecha, tipo_movimiento, valor, saldo, estado, numero_cuenta)
+	VALUES ('2024-09-14', 'R', -575, 1425, 'T', '478758');
+INSERT INTO public.movimiento(
+	fecha, tipo_movimiento, valor, saldo, estado, numero_cuenta)
+	VALUES ('2024-09-14', 'D', 600, 700, 'T', '225487');
+INSERT INTO public.movimiento(
+	fecha, tipo_movimiento, valor, saldo, estado, numero_cuenta)
+	VALUES ('2024-09-14', 'D', 150, 150, 'T', '495878');
+INSERT INTO public.movimiento(
+	fecha, tipo_movimiento, valor, saldo, estado, numero_cuenta)
+	VALUES ('2024-09-14', 'R', -540, 0, 'T', '496825');
+
